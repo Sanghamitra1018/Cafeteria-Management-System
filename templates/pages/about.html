@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>About Us</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>About Us</h1>
+    <table border="=1" width="25%">
+        <tr>
+            <th>Name</th>
+            <th>Mark</th>
+            <th>Status</th>
+        </tr>
+        {% for name,mark in students.items %}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{mark}}</td>
+            <td>
+                {% if mark >= 50 %}
+                pass
+                {% else %}
+                fail
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock content  %}
+    
+    <h1>SIT Cafe About Us</h1>
+    <!--{{var}}
+    {{y}}
+    {% if y < 0 %}
+    Negative
+    {% elif y > 0 %}
+    Positive
+    {% else %}
+    Zero
+    {% endif %}
+    <ul>
+        {% for food in foods  %}
+            <li>{{food}}</li>
+        {% endfor %}
+    </ul>-->
+    
+
+</body>
+</html>

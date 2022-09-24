@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index-style.css'%}">
+{% endblock css %}
+
+{% block content %}
+    <h1>Welcome to SIT Cafe</h1>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/cafe.jpg'%}" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/cafe2.jpeg'%}" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/cafe3.webp'%}" class="d-block w-100" alt="">
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button><br><br>
+    </div>
+    <div class="row p-3">
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/cafe4.jpeg'%}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Indian Food</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/cafe5.jpeg'%}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">South India Food</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/cafe6.webp'%}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Chinese Food</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static 'images/cafe7.jpeg'%}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Beverages Food</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Order Now</a>
+                </div>
+              </div>
+        </div>
+
+    </div>
+{% endblock content  %}

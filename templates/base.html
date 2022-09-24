@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIT Cafe</title>
+    <link rel="stylesheet" href="{% static 'bs/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block css %}
+
+    {% endblock css %}
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="#">SIT CAFE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <!--for search-->
+              <li class="nav-item">
+                <form action="{% url 'search' %}" method="post">    <!--when we click the search btn, 'search' is searched in urls.py of food app for the name='search', when it matches to a corresponding path(), control flows from urls to views to a function-->
+                  {% csrf_token %}
+                  <div class="form-outline d-flex">
+                    <input type="search" id="form1" placeholder="search foods" class="form-control" name="form1"/>   <!--name=form1, is used to fetch the value of the field in views.py of food app-->
+                    <button type="submit" class="btn btn-primary">
+                      <i class="fas fa-search"> search</i>
+                    </button>
+                  </div>
+                </form>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'about_us'%}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'contact_us'%}">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'menu'%}">Menu</a>
+              </li>
+
+              
+
+              {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Welcome, {{user.first_name}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'signout' %}">log out</a></li>
+                </ul>
+              </li>
+
+
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'signup' %}">Sign Up</a>   <!--in urls.py of uers app-->
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'signin' %}">Sign In</a>   <!--in urls.py of uers app-->
+              </li>
+              
+              
+              
+              {% endif %}
+
+
+            </ul>
+          </div>
+
+        </div>
+    </nav>
+
+
+    {% block content %}
+    
+    {% endblock content %}
+
+
+    <footer class="bg-dark text-light p-3 text-center">
+        &copy;2022
+    </footer>
+    {% block extrajs %}
+
+
+    {% endblock extrajs %}
+    <script src="{% static 'bs/bootstrap.bundle.js'%}"></script>
+</body>
+</html>
